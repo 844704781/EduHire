@@ -1,0 +1,66 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/job/index",
+			"style": {
+				"navigationBarTitleText": "职位"
+			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path" : "pages/message/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "消息"
+			}
+		},
+		{
+			"path" : "pages/public_recruitment/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "公招"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "EduHire",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#b8b8b8",
+		"selectedColor": "#ffe135",
+		"backgroundColor": "#f2f2f2",
+		"height": "130rpx",
+		"iconWidth": "50rpx",
+		"position": "bottom",
+		"list": [{
+			"text": "职位",
+			"pagePath": "pages/job/index",
+			"iconPath": "static/tabs/job.png",
+			"selectedIconPath": "static/tabs/job-active.png"
+		},{
+			"text": "公招",
+			"pagePath": "pages/public_recruitment/index",
+			"iconPath": "static/tabs/public-recruitment.png",
+			"selectedIconPath": "static/tabs/public-recruitment-active.png"
+		},{
+			"text": "消息",
+			"pagePath": "pages/message/index",
+			"iconPath": "static/tabs/message.png",
+			"selectedIconPath": "static/tabs/message-active.png"
+		},{
+			"text": "我的",
+			"pagePath": "pages/profile/index",
+			"iconPath": "static/tabs/profile.png",
+			"selectedIconPath": "static/tabs/profile-active.png"
+		}]
+	},
+	"uniIdRouter": {}
+}
