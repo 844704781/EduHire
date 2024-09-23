@@ -9,7 +9,7 @@
 					<u-col :span='9'>
 						<view class="name">{{info.name}}</view>
 						<view class="status"><u-button type="warning" size='mini' icon="arrow-down" :plain="true"
-								L:customStyle='status_custom_style' text="离职-立即到岗"></u-button></view>
+								:customStyle='status_custom_style' text="离职-立即到岗"></u-button></view>
 					</u-col>
 				</u-row>
 			</view>
@@ -65,14 +65,14 @@
 			<view class="tools">
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/profile.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/profile.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">我的简历</view>
 				</view>
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/profile-file.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/profile-file.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">附件简历</view>
@@ -84,35 +84,35 @@
 			<view class="tools">
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/settings.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/settings.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">设置</view>
 				</view>
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/browsing-history.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/browsing-history.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">浏览记录</view>
 				</view>
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/business-cooperation.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/business-cooperation.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">商务合作</view>
 				</view>
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/chat-support.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/chat-support.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">在线客服</view>
 				</view>
 				<view class="item">
 					<view class="logo">
-						<u--image :showLoading="true" src="../../static/tools/feedback.svg" :width='logo_size'
+						<u--image :showLoading="true" src="https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=tools/feedback.png" :width='logo_size'
 							:height='logo_size'></u--image>
 					</view>
 					<view class="name">问题反馈</view>
@@ -158,7 +158,7 @@
 			}
 
 			.status {
-				width: 140rpx;
+				width: 190rpx;
 
 
 				/deep/ .u-icon__icon span {
@@ -173,8 +173,8 @@
 		}
 
 		.overview {
-			border: solid 1px #b1b1b1;
-			margin: 10rpx 30rpx;
+			border: solid 1px #e5e5e5;
+			margin: 20rpx 30rpx;
 			border-radius: 20rpx;
 
 			.item {
@@ -200,7 +200,7 @@
 	}
 
 	.recruit_now {
-		border: solid 1px #b1b1b1;
+		border: solid 1px #e5e5e5;
 		margin: 0 30rpx;
 		padding: 15rpx 10rpx;
 		border-radius: 20rpx;
@@ -219,7 +219,7 @@
 	}
 
 	.common_tools {
-		border: solid 1px #b1b1b1;
+		border: solid 1px #e5e5e5;
 		margin: 10rpx 30rpx;
 		padding: 15rpx 10rpx;
 		border-radius: 20rpx;
@@ -256,8 +256,10 @@
 		}
 	}
 	.exit{
+
 		display: flex;
 		justify-content: center;
+		margin: 20rpx 0;
 		.exit_button{
 			width: 50%;
 		}

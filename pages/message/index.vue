@@ -1,8 +1,7 @@
 <template>
 	<view class="message">
 		<view>
-			<scroll-view :style="{height: scroll_height+'rpx'}" scroll-y show-scrollbar
-				scroll-with-animation>
+			<scroll-view :style="{height: scroll_height+'rpx'}" scroll-y show-scrollbar scroll-with-animation>
 				<view v-for="(item,index) in messages" :key='index' class="item">
 					<u-row>
 						<u-col span="2">
@@ -34,13 +33,21 @@
 	/**
 	 * 自适应jobs的总高度
 	 */
-	function getMessagesHeight(screenHeight, isShowSwiper = true) {
-		const titleHeight = 44
-		const bottomHeight = 65
-		let otherHeight = titleHeight + bottomHeight
-
-		return (screenHeight - otherHeight) * 2
+	function getMessagesHeight(height, isShowSwiper = true) {
+		const titleHeight = 0
+		const swiperHeight = 0
+		const noticeBarHeight = 0
+		const selectorHeight = 0
+		const bottomHeight = 0
+		let otherHeight
+		if (isShowSwiper) {
+			otherHeight = titleHeight + swiperHeight + noticeBarHeight + selectorHeight + bottomHeight
+		} else {
+			otherHeight = titleHeight + selectorHeight + bottomHeight
+		}
+		return (height - otherHeight) * 2
 	}
+
 	function handleTipStyle(type) {
 		if (type == 'unread_by_me') {
 			return 'background-color: #ff0000;'
@@ -50,8 +57,9 @@
 			return 'background-color: #b1b1b1b1;'
 		}
 	}
+
 	function handleTipText(tip_text, max_length) {
-	
+
 		if (tip_text.length > max_length) {
 			return tip_text.substring(0, max_length) + '...'
 		} else {
@@ -186,13 +194,73 @@
 			}
 		},
 		onLoad() {
-			this.scroll_height = getMessagesHeight(uni.getSystemInfoSync().screenHeight, true)
+			uni.getSystemInfo({
+				success: (res) => {
+					this.window_height = res.windowHeight
+					this.scroll_height = getMessagesHeight(uni.getSystemInfoSync().screenHeight, true)
+				}
+			})
+			
 		},
-		methods: {
-		}
+		methods: {}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.message {
+		margin: 0 20rpx;
+		.item {
+			border-bottom: solid 1px #e5e5e5;
+			padding: 10rpx 0;
+			.mid {
+				width: 100%;
 
+				.top {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					// border: solid 1px red;
+					padding: 10rpx 0;
+
+					.name {
+						// border: solid 1px red;
+						font-size: 30rpx;
+						font-weight: 550;
+						width: 25%;
+					}
+
+					.enterprise_name {
+						
+						width: 75%;
+						font-size: 18rpx;
+						font-weight: 400;
+						color: #b1b1b1;
+					}
+				}
+
+				.message {
+					// border: solid 1px red;
+					padding: 10rpx 0;
+					font-size: 20rpx;
+					color: #b1b1b1;
+				}
+			}
+
+			.right {
+				// border: solid 1px red;
+				text-align: right;
+
+				.date {
+					font-size: 20rpx;
+				}
+
+				.tip {
+					font-size: 20rpx;
+					display: inline-block;
+					border-radius: 8rpx;
+					color: #ffffff;
+				}
+			}
+		}
+	}
 </style>
