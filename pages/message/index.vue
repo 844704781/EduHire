@@ -2,7 +2,7 @@
 	<view class="message">
 		<view>
 			<scroll-view :style="{height: scroll_height+'rpx'}" scroll-y show-scrollbar scroll-with-animation>
-				<view v-for="(item,index) in messages" :key='index' class="item">
+				<view v-for="(item,index) in messages" :key='index' class="item" @click="handleClick(item.name)">
 					<u-row>
 						<u-col span="2">
 							<u-avatar :src="item.avatar_url"></u-avatar>
@@ -202,7 +202,13 @@
 			})
 			
 		},
-		methods: {}
+		methods: {
+			handleClick(name){
+				uni.navigateTo({
+					url: '/sub/message/detail'
+				})
+			}
+		}
 	}
 </script>
 

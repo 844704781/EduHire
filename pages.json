@@ -13,20 +13,58 @@
 			}
 		},
 		{
-			"path" : "pages/message/index",
-			"style" : 
-			{
-				"navigationBarTitleText" : "消息"
+			"path": "pages/message/index",
+			"style": {
+				"navigationBarTitleText": "消息"
 			}
 		},
 		{
-			"path" : "pages/public_recruitment/index",
-			"style" : 
-			{
-				"navigationBarTitleText" : "公招"
+			"path": "pages/public_recruitment/index",
+			"style": {
+				"navigationBarTitleText": "公招"
 			}
 		}
 	],
+	"subPackages": [{
+		"root": "sub/job",
+		"pages": [{
+			"path": "detail",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "职位详情"
+			}
+		},{
+			"path": "search",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "搜索职位"
+			}
+		}]
+	},{
+		"root": "sub/message",
+		"pages": [{
+			"path": "detail",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "聊天"
+			}
+		}]
+	},{
+		"root": "sub/public_recruitment",
+		"pages": [{
+			"path": "detail",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "详情"
+			}
+		},{
+			"path": "search",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "搜索公招信息"
+			}
+		}]
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "EduHire",
@@ -45,17 +83,17 @@
 			"pagePath": "pages/job/index",
 			"iconPath": "static/tabs/job.png",
 			"selectedIconPath": "static/tabs/job-active.png"
-		},{
+		}, {
 			"text": "公招",
 			"pagePath": "pages/public_recruitment/index",
 			"iconPath": "static/tabs/public-recruitment.png",
 			"selectedIconPath": "static/tabs/public-recruitment-active.png"
-		},{
+		}, {
 			"text": "消息",
 			"pagePath": "pages/message/index",
 			"iconPath": "static/tabs/message.png",
 			"selectedIconPath": "static/tabs/message-active.png"
-		},{
+		}, {
 			"text": "我的",
 			"pagePath": "pages/profile/index",
 			"iconPath": "static/tabs/profile.png",

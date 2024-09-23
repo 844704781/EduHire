@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<u-transition :show="is_show_head" mode='fade' duration='200'>
-			<view  class="head">
+			<view class="head">
 				<view class="carousel">
 					<u-swiper :list="list" mode='none'></u-swiper>
 				</view>
@@ -30,8 +30,8 @@
 						</view>
 					</u-col>
 					<u-col span="3">
-						<view class="right">
-							<u--input placeholder="搜索" suffixIcon="search" suffixIconStyle="color: #909399"></u--input>
+						<view class="right" @click="handleSearch">
+							<u--input placeholder="搜索" suffixIcon="search" suffixIconStyle="color: #909399" ></u--input>
 						</view>
 					</u-col>
 				</u-row>
@@ -41,7 +41,7 @@
 			<scroll-view :style="{height: scroll_height+'rpx'}" scroll-y show-scrollbar scroll-with-animation
 				@scroll="onScrollHandler" @scrolltoupper="upper">
 
-				<view v-for="(item,index) in jobs" :key='index' class='job'>
+				<view v-for="(item,index) in jobs" :key='index' class='job' @click="handleClick(item.name)">
 					<view class="name_mount">
 						<u-row>
 							<u-col span="6">
@@ -256,28 +256,37 @@
 				this.is_show_head = true
 				this.scroll_height = getJobsHeight(this.window_height, true)
 
+			},
+			handleClick(name) {
+				uni.navigateTo({
+					url: '/sub/job/detail'
+				})
+			},
+			handleSearch(){
+				uni.navigateTo({
+					url: '/sub/job/search'
+				})
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	
-	.head{
+	.head {
 
-		
+
 		.carousel {
 			// border:solid 1px red;
 			touch-action: none;
 		}
-		
+
 		.notice_bar {
 			// border:solid 1px red;
 			// margin-bottom: 9rpx;
 			touch-action: none;
 		}
 	}
-	
+
 
 
 	.selector {

@@ -176,8 +176,9 @@
 						display: inline-flex;
 						width: auto;
 						white-space: nowrap;
-						overflow: hidden;
 						/* 防止子元素换行 */
+						overflow: hidden;
+
 						background: #f9ae3d;
 						border-radius: 50rpx;
 
@@ -193,7 +194,7 @@
 					/deep/ .u-button__text span {
 						display: inline-flex;
 						font-size: 15rpx;
-	
+
 						color: #ffffff;
 
 					}

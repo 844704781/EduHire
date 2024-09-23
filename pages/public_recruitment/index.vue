@@ -6,8 +6,6 @@
 			</view>
 		</u-transition>
 		<view class="selector">
-
-
 			<view>
 				<zb-dropdown-menu style="width: 100%" ref="dropdown" active-color="#ffe135">
 					<zb-dropdown-item :name="selector_options[0].name" :options="selector_options[0].options"
@@ -19,14 +17,14 @@
 				</zb-dropdown-menu>
 			</view>
 
-			<view class="search">
+			<view class="search" @click="handleSearch">
 				<u-search placeholder="请输入关键字搜索" v-model="search_key_word"></u-search>
 			</view>
 
 			<view class="jobs">
 				<scroll-view :style="{height: scroll_height+'rpx'}" scroll-y show-scrollbar scroll-with-animation
 					@scroll="onScrollHandler" @mouseup="upper">
-					<view v-for="(item,index) in jobs" :key='index' class="item">
+					<view v-for="(item,index) in jobs" :key='index' class="item" @click="handleClick">
 						<view class="title">{{item.title}}</view>
 						<view class="item-info">
 							<view class="enterprise_name">{{item.enterprise_name}}</view>
@@ -170,6 +168,16 @@
 				this.is_show_head = true
 				this.scroll_height = getRecruitmentHeight(this.window_height, true)
 
+			},
+			handleClick(){
+				uni.navigateTo({
+					url: '/sub/public_recruitment/detail'
+				})
+			},
+			handleSearch(){
+				uni.navigateTo({
+					url: '/sub/public_recruitment/search'
+				})
 			}
 		}
 	}
