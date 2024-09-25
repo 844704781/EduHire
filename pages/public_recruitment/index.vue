@@ -191,7 +191,7 @@
 
 		.title {
 			font-size: 30rpx;
-			font-weight: 1000;
+			font-weight: 400;
 			margin: 10rpx 0;
 		}
 

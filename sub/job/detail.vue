@@ -108,20 +108,58 @@
 		</view>
 		<view class="recommend item">
 			<view class="title">相似职位</view>
-			<view>组件</view>
+			<u-transition :show='true' mode='fade' duration='200'>
+				<view v-for="(item,index) in jobs" :key='index'>
+					<job-item :item='item'></job-item>
+				</view>
+			</u-transition>
 		</view>
 	</view>
 </template>
 
 <script>
+	import jobItem from '@/components/common/job-item.vue'
+	export default {
+		data() {
+			return {
+				jobs: [{
+					name: '副班老师',
+					mount: '2000-3000元/月',
+					tags: ['教师资格证', '保育员', '包吃', '包住', '寒暑假', '全勤奖', '年终奖', '教师资格证'],
+					enterprise_name: '赣州市章贡区金色摇篮幼儿园',
+					enterprise_type: '幼儿园',
+					enterprise_location: '赣州市·章贡区'
+				}, {
+					name: '班主任',
+					mount: '2000-3000元/月',
+					tags: ['教师资格证', '包住', '寒暑假', '全勤奖', '年终奖', '教师资格证'],
+					enterprise_name: '赣州市章贡区城关幼儿园',
+					enterprise_type: '幼儿园',
+					enterprise_location: '赣州市·章贡区'
+				}, {
+					name: '校长',
+					mount: '2000-3000元/月',
+					tags: ['教师资格证', '保育员', '包吃', '包住', '寒暑假', '全勤奖', '年终奖', '教师资格证', '全勤奖', '年终奖', '教师资格证'],
+					enterprise_name: '赣州市章贡区金色摇篮幼儿园',
+					enterprise_type: '幼儿园',
+					enterprise_location: '赣州市·章贡区'
+				}]
+			}
+		},
+		components: {
+			'job-item': jobItem
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
 	.me {
 		margin: 0 20rpx;
-		.item{
+
+		.item {
 			margin: 30rpx 0;
 		}
+
 		.profile {
 			border: solid 1px #e1e1ef;
 			border-radius: 20rpx;
@@ -205,7 +243,7 @@
 			padding: 10rpx;
 
 			.content {
-		
+
 				padding: 30rpx 5rpx 0rpx 5rpx;
 
 				.key {
@@ -221,12 +259,15 @@
 				}
 			}
 		}
-		
-		.recommend{
+
+		.recommend {
 			border: solid 1px #e1e1ef;
 			border-radius: 20rpx;
 			padding: 10rpx;
-			
+
+			.title {
+				margin-bottom: 20rpx;
+			}
 		}
 
 		.title {
