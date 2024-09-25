@@ -205,7 +205,7 @@
 		methods: {
 			handleClick(name){
 				uni.navigateTo({
-					url: '/sub/message/detail'
+					url: '/pages/message/detail'
 				})
 			}
 		}

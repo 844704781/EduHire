@@ -6,17 +6,8 @@
 				<view class="mount">2000-3000元/月</view>
 			</view>
 			<view class="labels">
-				<view class="label">
-					<u-tag plain icon='bag-fill' text="无经验" size="mini"></u-tag>
-				</view>
-				<view class="label">
-					<u-tag plain icon='woman' text="不限" size="mini"></u-tag>
-				</view>
-				<view class="label">
-					<u-tag plain icon='man-add-fill' text="2人" size="mini"></u-tag>
-				</view>
-				<view class="label">
-					<u-tag plain icon='file-text-fill' text="大专" size="mini"></u-tag>
+				<view v-for="(item,index) in job.job_labels" :key='index'>
+					<enterprise-label :item='item'></enterprise-label>
 				</view>
 			</view>
 			<view class="location_navigation">
@@ -56,19 +47,14 @@
 			<view class="content">
 				<view>
 					<view class="key">技能要求</view>
-					<view class="value">唱跳rap篮球</view>
+					<view class="value">{{job.description.skill}}</view>
 				</view>
 				<view>
 					<view class="key">证书要求</view>
 					<view class="value">
 						<view class="labels">
-							<view class="label">
-								<u-tag text="教师资格证" size="mini" color='#eb8f05' bg-color="#ffeed4"
-									border-color="transparent"></u-tag>
-							</view>
-							<view class="label">
-								<u-tag text="身份证" size="mini" color='#eb8f05' bg-color="#ffeed4"
-									border-color="transparent"></u-tag>
+							<view v-for="(item,index) in job.description.certificates" :key='index'>
+								<enterprise-label :item='item'></enterprise-label>
 							</view>
 						</view>
 					</view>
@@ -77,22 +63,8 @@
 					<view class="key">特色福利</view>
 					<view class="value">
 						<view class="labels">
-							<view class="label">
-								<u-tag text="寒暑假" size="mini" color='#eb8f05' bg-color="#ffeed4"
-									border-color="transparent"></u-tag>
-							</view>
-							<view class="label">
-								<u-tag text="节日福利" size="mini" color='#fd008d' bg-color="#ffc3e0"
-									border-color="transparent"></u-tag>
-							</view>
-
-							<view class="label">
-								<u-tag text="社保" size="mini" color='#0064ff' bg-color="#adcbf9"
-									border-color="transparent"></u-tag>
-							</view>
-							<view class="label">
-								<u-tag text="双休" size="mini" color='#fdd400' bg-color="#fff8d4"
-									border-color="transparent"></u-tag>
+							<view v-for="(item,index) in job.description.labels" :key='index'>
+								<enterprise-label :item='item'></enterprise-label>
 							</view>
 						</view>
 					</view>
@@ -100,8 +72,8 @@
 				<view>
 					<view class="key">职位描述</view>
 					<view class="value">
-						<view>1.热爱教育行业，责任心强</view>
-						<view>2.有幼师证</view>
+						<view v-html="job.description.content"></view>
+
 					</view>
 				</view>
 			</view>
@@ -118,10 +90,67 @@
 </template>
 
 <script>
-	import jobItem from '@/components/common/job-item.vue'
+	import job_item from '@/components/common/job-item.vue'
+	import enterprise_label from '@/components/common/enterprise-label.vue'
+
 	export default {
 		data() {
 			return {
+				job: {
+					job_labels: [{
+						text: '无经验',
+						color: null,
+						bg_color: 'transparent',
+						icon: 'bag-fill',
+					}, {
+						text: '不限',
+						color: null,
+						bg_color: 'transparent',
+						icon: 'woman',
+					}, {
+						text: '2人',
+						color: null,
+						bg_color: 'transparent',
+						icon: 'man-add-fill',
+					}, {
+						text: '大专',
+						color: null,
+						bg_color: 'transparent',
+						icon: 'file-text-fill',
+					}],
+					description: {
+						skill: `唱跳rap篮球`,
+						certificates: [{
+							text: '教师资格证',
+							color: '#eb8f05',
+							bg_color: '#ffeed4'
+						}, {
+							text: '幼师证',
+							color: '#eb8f05',
+							bg_color: '#ffeed4'
+						}],
+						labels: [{
+							text: '寒暑假',
+							color: '#eb8f05',
+							bg_color: '#ffeed4'
+						}, {
+							text: '节日福利',
+							color: '#fd008d',
+							bg_color: '#ffc3e0'
+						}, {
+							text: '社保',
+							color: '#0064ff',
+							bg_color: '#adcbf9'
+						}, {
+							text: '双休',
+							color: '#fdd400',
+							bg_color: '#fff8d4'
+						}],
+						content: `1.热爱教育行业，责任心强<br>
+						2.有幼师证`
+					},
+				},
+
 				jobs: [{
 					name: '副班老师',
 					mount: '2000-3000元/月',
@@ -147,7 +176,8 @@
 			}
 		},
 		components: {
-			'job-item': jobItem
+			'job-item': job_item,
+			'enterprise-label': enterprise_label
 		}
 	}
 </script>
@@ -161,11 +191,13 @@
 		}
 
 		.profile {
+
 			border: solid 1px #e1e1ef;
 			border-radius: 20rpx;
 			padding: 10rpx;
 
 			.name_mount {
+
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
@@ -183,20 +215,21 @@
 			}
 
 			.labels {
-				display: inline-flex;
+				margin: 30rpx 0 0 0;
 
 				.label {
-					margin: 30rpx 30rpx 10rpx 0;
-
 					/deep/ .u-tag {
+
 						border-color: transparent;
 					}
 
-					/deep/ .u-icon__icon {
+					/deep/ .u-icon__icon * {
+
 						color: #e1e1e1;
 					}
 
-					/deep/ .u-tag__text {
+					/deep/ .u-tag__text * {
+
 						color: #5a5a5a;
 					}
 				}
@@ -278,9 +311,10 @@
 
 		.labels {
 			display: inline-flex;
+			margin: 20rpx 0 10rpx 0;
 
-			.label {
-				padding: 10rpx 20rpx 10rpx 0;
+			/deep/ .label {
+				margin-right: 15rpx;
 			}
 		}
 	}

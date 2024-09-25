@@ -19,6 +19,12 @@
 			}
 		},
 		{
+			"path": "pages/message/detail",
+			"style": {
+				"navigationBarTitleText": "聊天"
+			}
+		},
+		{
 			"path": "pages/public_recruitment/index",
 			"style": {
 				"navigationBarTitleText": "公招"
@@ -26,45 +32,37 @@
 		}
 	],
 	"subPackages": [{
-		"root": "sub/job",
-		"pages": [{
-			"path": "detail",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "职位详情"
-			}
+			"root": "sub/job",
+			"pages": [{
+				"path": "detail",
+				"style": {
+					"enablePullDownRefresh": true,
+					"navigationBarTitleText": "职位详情"
+				}
+			}, {
+				"path": "search",
+				"style": {
+					"enablePullDownRefresh": true,
+					"navigationBarTitleText": "搜索职位"
+				}
+			}]
 		},{
-			"path": "search",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "搜索职位"
-			}
-		}]
-	},{
-		"root": "sub/message",
-		"pages": [{
-			"path": "detail",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "聊天"
-			}
-		}]
-	},{
-		"root": "sub/public_recruitment",
-		"pages": [{
-			"path": "detail",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "详情"
-			}
-		},{
-			"path": "search",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "搜索公招信息"
-			}
-		}]
-	}],
+			"root": "sub/public_recruitment",
+			"pages": [{
+				"path": "detail",
+				"style": {
+					"enablePullDownRefresh": true,
+					"navigationBarTitleText": "详情"
+				}
+			}, {
+				"path": "search",
+				"style": {
+					"enablePullDownRefresh": true,
+					"navigationBarTitleText": "搜索公招信息"
+				}
+			}]
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "EduHire",

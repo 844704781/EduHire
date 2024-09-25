@@ -8,8 +8,10 @@
 					</u-col>
 					<u-col :span='9'>
 						<view class="name">{{info.name}}</view>
-						<view class="status"><u-button type="warning" size='mini' icon="arrow-down" :plain="true"
-								:customStyle='status_custom_style' text="离职-立即到岗"></u-button></view>
+						<view class="status">
+							<u-tag icon='arrow-down' :text="info.status" bg-color='#a3a3a3' size='mini'
+								border-color="transparent" @click='handleClick'></u-tag>
+						</view>
 					</u-col>
 				</u-row>
 			</view>
@@ -128,9 +130,15 @@
 		</view>
 		<view class="exit ">
 			<view class="exit_button">
-				<u-button :plain="true" shape="circle" type='error' text="退出登录"></u-button>
+				<u-button :plain="true" shape="circle" type='error' text="退出登录" :closeOnClickOverlay="true"
+					:closeOnClickAction="true"></u-button>
 			</view>
 		</view>
+
+
+		<u-action-sheet :actions="status_obj.status_list" :title="status_obj.title"
+			:show="show_status_obj"  @select="selectClick" @close="closeAction" :closeOnClickOverlay="true" :closeOnClickAction="true" ></u-action-sheet>
+
 	</view>
 </template>
 
@@ -139,20 +147,52 @@
 		data() {
 			return {
 				logo_size: "60rpx",
-				status_custom_style: {
 
-				},
 				info: {
 					avatar_url: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8f7e1d02-dcb1-46ba-90db-ae32fea44f22/4b2bf3e5-68ad-4a15-b0d1-00b7a5246eab.png',
-					name: 'watermelon'
+					name: 'watermelon',
+					status: '离职-随时到岗'
+				},
+				
+				show_status_obj: false,
+				status_obj: {
+					title: '求职状态',
+					status_list: [{
+						name: '离职-随时到岗',
+
+
+					}, {
+						name: '在职-月内到岗',
+
+
+					}, {
+						name: '在职-考虑机会',
+
+
+					}, {
+						name: '在职-暂不考虑',
+
+
+					}]
 				}
+
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
+			handleClick() {
+				this.show_status_obj = true
+			},
+			selectClick(target){
+				this.info.status=target.name
+				this.show_status_obj = false
+			},
+			closeAction(){
+				this.show_status_obj = false
+			}
+			
 		}
 	}
 </script>
@@ -172,32 +212,34 @@
 				}
 
 				.status {
-					uni-button {
-						display: inline-flex;
-						width: auto;
-						white-space: nowrap;
-						/* 防止子元素换行 */
-						overflow: hidden;
+					display: flex;
 
-						background: #f9ae3d;
-						border-radius: 50rpx;
+					// /deep/ .u-button {
+					// 	display: inline-flex;
+					// 	width: auto;
+					// 	white-space: nowrap;
+					// 	/* 防止子元素换行 */
+					// 	overflow: hidden;
 
-					}
+					// 	background: #f9ae3d;
+					// 	border-radius: 50rpx;
 
-					/deep/ .u-icon__icon span {
-						display: inline-flex;
-						font-size: 10rpx;
-						color: #ffffff;
+					// }
 
-					}
+					// /deep/ .u-icon__icon span {
+					// 	display: inline-flex;
+					// 	font-size: 10rpx;
+					// 	color: #ffffff;
 
-					/deep/ .u-button__text span {
-						display: inline-flex;
-						font-size: 15rpx;
+					// }
 
-						color: #ffffff;
+					// /deep/ .u-button__text span {
+					// 	display: inline-flex;
+					// 	font-size: 15rpx;
 
-					}
+					// 	color: #ffffff;
+
+					// }
 				}
 			}
 
