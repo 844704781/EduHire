@@ -92,10 +92,10 @@ export default {
       classCount: '10~15个班',
       tags: ['亲爱假', '社保', '双休', '包吃', '年终奖'],
       schoolImages: [
-        '/static/school/school-image1.jpg',
-        '/static/school/school-image2.jpg',
-        '/static/school/school-image3.jpg',
-        '/static/school/school-image4.jpg'
+        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image1.jpg',
+        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image2.jpg',
+        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image3.jpg',
+        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image4.jpg'
       ],
       jobs: [
         { 

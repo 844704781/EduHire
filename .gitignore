@@ -1,2 +1,4 @@
 .hbuilderx/
 unpackage/
+.vscode/launch.json
+node_modules/
