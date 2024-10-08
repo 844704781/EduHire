@@ -61,6 +61,19 @@
 					"navigationBarTitleText": "搜索公招信息"
 				}
 			}]
+		},{
+			"root": "sub/kindergarten",
+			"pages": [{
+				"path": "detail",
+				"style": {
+					"navigationBarTitleText": "招聘主页",
+					"app-plus": {
+						"titleNView": {
+							"type": "default"
+						}
+					}
+				}
+			}]
 		}
 	],
 	"globalStyle": {

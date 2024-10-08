@@ -29,7 +29,7 @@
 				</u-col>
 				<u-col :span="8">
 					<view class="enterprise">
-						<view class="enterprise_name">赣县区翰思学校</view>
+						<view class="enterprise_name" @click="goToKindergartenDetail">赣县区翰思学校</view>
 						<view class="enterprise_type">幼儿园私立园</view>
 					</view>
 				</u-col>
@@ -173,6 +173,13 @@
 					enterprise_type: '幼儿园',
 					enterprise_location: '赣州市·章贡区'
 				}]
+			}
+		},
+		methods: {
+			goToKindergartenDetail() {
+				uni.navigateTo({
+					url: '/sub/kindergarten/detail?name=' + encodeURIComponent(this.job.enterprise_name)
+				})
 			}
 		},
 		components: {
