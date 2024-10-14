@@ -92,10 +92,10 @@ export default {
       classCount: '10~15个班',
       tags: ['亲爱假', '社保', '双休', '包吃', '年终奖'],
       schoolImages: [
-        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image1.jpg',
-        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image2.jpg',
-        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image3.jpg',
-        'http://124.71.152.98:9090/browser/eduhire/detail_school%2Fschool-image4.jpg'
+        'https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=detail_school%2Fschool-image1.jpg',
+        'https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=detail_school%2Fschool-image2.jpg',
+        'https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=detail_school%2Fschool-image3.jpg',
+        'https://wallpaper.cospapa.cn/oss/v1/get?bucket=eduhire&filename=detail_school%2Fschool-image4.jpg'
       ],
       jobs: [
         { 
